@@ -60,20 +60,20 @@ export async function DELETE(
 		console.log("delete result:", { error: deleteError });
 
 		if (deleteError) {
-			console.error("delete failed:", deleteError);
+			console.error("Delete failed:", deleteError);
 			return NextResponse.json(
-				{ error: "failed to delete entry cause server error ", deleteError },
+				{ error: "Failed to delete entry cause server error ", deleteError },
 				{ status: 500 },
 			);
 		}
 
-		console.log("delete API: Entry deleted successfully");
+		console.log("Delete API: Entry deleted successfully");
 		return NextResponse.json({ success: true, deletedEntry: id });
 		
 	} catch (error: any) {
 		console.error(error.message);
 		return NextResponse.json(
-			{ error: `internal server error` },
+			{ error: `Internal server error` },
 			{ status: 500 },
 		);
 	}
