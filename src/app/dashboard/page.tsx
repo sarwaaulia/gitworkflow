@@ -271,7 +271,7 @@ export default function DashboardPage() {
 						</div>
 
 						{showFilters && (
-							<div className="p-6 rounded-2xl bg-surface border border-border-muted grid grid-cols-1 md:grid-cols-4 gap-4 animate-in fade-in slide-in-from-top-2">
+							<div className="p-6 rounded-2xl bg-surface border border-border-muted grid grid-cols-1 md:grid-cols-3 gap-4 animate-in fade-in slide-in-from-top-2">
 								<FilterSelect
 									label="Mood"
 									value={selectedMood}
@@ -281,18 +281,6 @@ export default function DashboardPage() {
 									{MOODS_VARIANT.map((m) => (
 										<option key={m.label} value={m.label}>
 											{m.emoticon} {m.label}
-										</option>
-									))}
-								</FilterSelect>
-								<FilterSelect
-									label="Category"
-									value={selectedCategory}
-									onChange={setSelectedCategory}
-								>
-									<option value="">All Categories</option>
-									{["Personal", "Work", "Health", "Learning"].map((c) => (
-										<option key={c} value={c}>
-											{c}
 										</option>
 									))}
 								</FilterSelect>
@@ -351,8 +339,8 @@ export default function DashboardPage() {
 									onChange={(e) => setSortBy(e.target.value)}
 									className="bg-transparent text-sm text-brand-purple font-bold outline-none cursor-pointer"
 								>
-									<option value="date_desc">Newest First</option>
-									<option value="date_asc">Oldest First</option>
+									<option value="date_desc">Newest</option>
+									<option value="date_asc">Oldest</option>
 								</select>
 							</div>
 						</div>
@@ -395,8 +383,8 @@ function RecentEntryCard({ entry }: { entry: JournalEntry }) {
 
 	return (
 		<Link
-			href={`/entries/read/${entry.id}`}
-			className="group block p-6 rounded-2xl border border-border-muted bg-surface transition-all hover:-translate-y-1 hover:shadow-xl hover:border-brand-purple/40"
+			href={`/entries/new`}
+			className="group block p-6 rounded-2xl border border-border-muted bg-surface transition-all hover:-translate-y-1 hover:shadow hover:border-brand-purple/40"
 		>
 			<div className="flex items-center justify-between mb-4">
 				<div className="flex items-center gap-2">
@@ -415,15 +403,8 @@ function RecentEntryCard({ entry }: { entry: JournalEntry }) {
 
 			<div className="flex items-center justify-between pt-4 border-t border-border-muted/50">
 				<div className="flex items-center justify-between pt-2 border-t border-slate-50 dark:border-slate-800">
-					<span className="text-[9px] px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-slate-500">
-						{entry.category?.color || "No Category"}
-					</span>
-					<ArrowRight
-						size={12}
-						className="text-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity"
-					/>
 				</div>
-				<div className="flex items-center gap-1 text-indigo-500 text-[11px] font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+				<div className="flex items-center gap-1 text-indigo-500 text-[11px] font-bold opacity-0 group-hover:opacity-90 transition-opacity">
 					View <ArrowRight size={12} />
 				</div>
 			</div>

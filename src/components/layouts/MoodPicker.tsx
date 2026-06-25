@@ -28,7 +28,7 @@ export default function MoodPicker() {
         <div className="space-y-5 p-5 rounded-2xl bg-surface border border-border-muted shadow-sm transition-colors">
             <label className="text-sm font-bold text-text-primary block">How are you feeling?</label>
             
-            <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-4 lg:grid-cols-8 gap-3">
+            <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-4 gap-3">
                 {moods.map((m) => {
                     const isActive = selectedMood?.label === m.label;
                     return (
@@ -37,7 +37,7 @@ export default function MoodPicker() {
                             type="button"
                             onClick={() => setSelectedMood(m)}
                             title={m.label}
-                            className={`text-2xl p-3 rounded-2xl transition-all duration-200 transform hover:scale-110 flex items-center justify-center ${
+                            className={`text-2xl rounded transition-all duration-200 transform hover:scale-110 flex items-center justify-center align-center ${
                                 isActive 
                                 ? 'bg-brand-purple text-white shadow-lg shadow-brand-purple/20 scale-105 border-transparent' 
                                 : 'bg-bg-main border border-border-muted hover:border-brand-purple/50'

@@ -106,7 +106,7 @@ export default async function InsightAI() {
 
                                         <div className="bg-surface border border-border-muted rounded-[2.5rem] p-8 md:p-10 shadow-sm group-hover:shadow-xl group-hover:shadow-brand-purple/5 transition-all duration-500">
                                             <div className="mb-10">
-                                                <p className="text-xl md:text-2xl text-text-primary leading-relaxed font-medium italic opacity-90">
+                                                <p className="text-lg md:text-2xl text-text-primary opacity-90">
                                                     "{insight.summary}"
                                                 </p>
                                             </div>
@@ -119,7 +119,7 @@ export default async function InsightAI() {
                                                     </div>
                                                     <div className="flex flex-wrap gap-2.5">
                                                         {insight.topThemes.map((theme) => (
-                                                            <span key={theme} className="px-4 py-2 rounded-2xl text-xs font-bold bg-bg-main text-text-primary border border-border-muted shadow-sm hover:border-brand-purple/40 transition-colors">
+                                                            <span key={theme} className="px-4 py-2 rounded-2xl text-xs font-bold  text-brand-purple border border-border-muted shadow-sm hover:border-brand-purple/40 transition-colors">
                                                                 #{theme}
                                                             </span>
                                                         ))}
@@ -134,8 +134,8 @@ export default async function InsightAI() {
                                                     <div className="flex flex-wrap gap-3">
                                                         {insight.moodTrend.map(({ mood, count }) => (
                                                             <div key={mood} className={`flex items-center gap-3 px-4 py-2 rounded-2xl border text-xs font-black shadow-sm ${generateColorMoods(mood)}`}>
-                                                                <span>{mood}</span>
-                                                                <span className="w-5 h-5 flex items-center justify-center bg-white/20 rounded-lg text-[10px]">{count}</span>
+                                                                <span className="font-bold text-brand-purple">{mood}</span>
+                                                                <span className="w-5 h-5 flex items-center justify-center text-brand-purple bg-white/20 rounded-lg text-xs">{count}</span>
                                                             </div>
                                                         ))}
                                                     </div>
